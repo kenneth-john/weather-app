@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { WeatherFormComponent } from './weather-form/weather-form.component';
+import { WeatherResultComponent } from './weather-result/weather-result.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherFormComponent,
+    WeatherResultComponent
   ],
   imports: [
     BrowserModule
