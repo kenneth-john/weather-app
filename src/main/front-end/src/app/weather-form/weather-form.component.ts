@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-weather-form',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherFormComponent implements OnInit {
 
-  constructor() { }
+  invalidZip: boolean = false;
 
-  ngOnInit() {
+  isZipValid(zip){
+    if(zip.value.length > 5){
+      this.invalidZip = true;
+    }
+    else{
+      this.invalidZip = false;
+    }
+  }
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  getWeather(weatherForm: NgForm) {
+    console.log(weatherForm);    
   }
 
 }

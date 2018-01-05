@@ -1,3 +1,24 @@
-<p>
-  weather-form works!
-</p>
+<div class="row">
+  <div class="col-12 mx-auto">
+    <form #weatherForm="ngForm" (ngSubmit)="getWeather(weatherForm)">
+      <div class="form-group">
+        <input 
+        type="text" 
+        class="form-control"
+        name="zipCode"
+        ngModel
+        required
+        #zip="ngModel"
+        (keyup)="isZipValid(zip)">
+
+        <span class="help-block" *ngIf="zip.touched && zip.invalid"><i>Zipcode required</i></span> 
+        <span class="help-block" *ngIf="invalidZip"> <i>Please enter 5 digit Zip Code</i></span>
+      </div>
+
+      <button 
+      type="submit" 
+      *ngIf="weatherForm.valid && !invalidZip" 
+      class="btn btn-primary">Get Weather</button>
+    </form>
+  </div>
+</div>
