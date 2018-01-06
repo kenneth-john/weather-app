@@ -1,3 +1,25 @@
-<p>
-  weather-result works!
-</p>
+
+<div *ngIf="gotData" class="jumbotron">    
+    <h1 class="display-4">Your weather</h1>
+    <p class="lead">Weather is as following in the city of {{weather.name}}</p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-6">
+            <h3>City: </h3>{{weather.name.toUpperCase()}}
+        </div>
+        <div class="col-6">
+            <h3>Current condition: </h3>{{weather.weather[0].description.toUpperCase()}}
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-6">
+            <h3>Temperature:</h3> {{weather.main.temp}}&nbsp;F
+        </div>
+        <div class="col-6">
+            <h3>Wind Speed:</h3> {{weather.wind.speed}}&nbsp;miles/hour
+        </div>
+    </div>
+    <div class="mt-5">
+        <a routerLink="">Search again</a>
+    </div>
+</div>
