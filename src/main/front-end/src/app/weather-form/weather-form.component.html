@@ -1,24 +1,32 @@
-<div class="row">
-  <div class="col-12 mx-auto">
-    <form #weatherForm="ngForm" (ngSubmit)="getWeather(weatherForm)">
-      <div class="form-group">
-        <input 
-        type="text" 
-        class="form-control"
-        name="zipCode"
-        ngModel
-        required
-        #zip="ngModel"
-        (keyup)="isZipValid(zip)">
+<h1 class="display-4 mb-5">Current weather in your area</h1>
+<div class="card-header text-white bg-primary">
+    <p class="lead">Enter your zip code below to get current weather details in your area</p>
+</div>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 mx-auto">
+        <form #weatherForm="ngForm" (ngSubmit)="getWeather(weatherForm)">
+          <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control"
+            name="zipCode"
+            ngModel
+            required
+            #zip="ngModel"
+            (keyup)="isZipValid(zip)">
 
-        <span class="help-block" *ngIf="zip.touched && zip.invalid"><i>Zipcode required</i></span> 
-        <span class="help-block" *ngIf="invalidZip"> <i>Please enter 5 digit Zip Code</i></span>
+            <span class="help-block" *ngIf="zip.touched && zip.invalid"><i>Zipcode required</i></span> 
+            <span class="help-block" *ngIf="invalidZip"> <i>Please enter 5 digit Zip Code</i></span>
+          </div>
+
+          <button 
+          type="submit" 
+          *ngIf="weatherForm.valid && !invalidZip" 
+          class="btn btn-primary">Get Weather</button>
+        </form>
       </div>
-
-      <button 
-      type="submit" 
-      *ngIf="weatherForm.valid && !invalidZip" 
-      class="btn btn-primary">Get Weather</button>
-    </form>
+    </div>
   </div>
 </div>
